@@ -1,3 +1,4 @@
+import ReactHookForm from "@/components/ReactHookForm";
 import ProfileForm from "@/components/profileform";
 import { Mail } from "@/components/resizenav";
 import { Button } from "@/components/ui/button";
@@ -13,11 +14,10 @@ const defaultCollapsed = collapsed ? JSON.parse(collapsed.value) : undefined;
 
 export default function Home() {
   return (
-    <main>
+    <div className="flex flex-col items-center justify-center h-screen">
       <h1>ERP</h1>
       <Button className="border">Click</Button>
-      {/* <ProfileForm></ProfileForm> */}
-      <h1>Test</h1>
-    </main>
+      <ProfileForm />
+    </div>
   );
 }
