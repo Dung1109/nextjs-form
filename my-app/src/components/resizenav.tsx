@@ -160,6 +160,7 @@ export function Mail({
             ]}
           />
         </ResizablePanel>
+        <ResizableHandle withHandle />
       </ResizablePanelGroup>
     </TooltipProvider>
   );

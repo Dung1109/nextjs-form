@@ -14,6 +14,7 @@ import {
 } from "./ui/form";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
+import { TabsDemo } from "./TabDemo";
 
 const formSchema = z.object({
   username: z
@@ -57,6 +58,7 @@ export default function ProfileForm() {
             </FormItem>
           )}
         />
+        <TabsDemo />
         <Button type="submit">Submit</Button>
       </form>
     </Form>
