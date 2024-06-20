@@ -16,11 +16,18 @@ const defaultLayout = layout ? JSON.parse(layout.value) : undefined;
 const defaultCollapsed = collapsed ? JSON.parse(collapsed.value) : undefined;
 
 export default function Home() {
-    const onFormAction = async (formData: FormData) => {
+    const onFormAction = async (
+        prevState: {
+            message: string;
+            user?: z.infer<typeof schema>;
+            issues?: string[];
+        },
+        formData: FormData
+    ) => {
         "use server";
 
         const data = Object.fromEntries(formData);
-        const parsed = schema.safeParse(data);
+        const parsed = await schema.safeParseAsync(data);
 
         if (parsed.success) {
             console.log("User registered - Server");
