@@ -1,6 +1,5 @@
-import {NextResponse} from "next/server";
-import {formSchema} from "@/lib/types";
-
+import { NextResponse } from "next/server";
+import { formSchema } from "@/lib/types";
 
 export async function POST(request: Request) {
     const body: unknown = await request.json();
@@ -12,12 +11,18 @@ export async function POST(request: Request) {
     let zodErrors: any = {};
     if (!result.success) {
         result.error.issues.forEach((issue) => {
-            zodErrors = {...zodErrors, [issue.path[0]]: issue.message};
+            zodErrors = { ...zodErrors, [issue.path[0]]: issue.message };
         });
-        return NextResponse.json({error: result.error.issues});
+        return NextResponse.json({ error: result.error.issues });
     }
 
     return NextResponse.json(
-        Object.keys(zodErrors).length > 0 ? {error: zodErrors} : {success: true}
+        Object.keys(zodErrors).length > 0
+            ? { error: zodErrors }
+            : { success: true }
     );
+}
+
+export async function GET(request: Request) {
+    return NextResponse.json({ name: "NAMCT" });
 }
